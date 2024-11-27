@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
+import NavbarVista from './vista/NavbarVista';
+import InicioVista from './vista/InicioVista';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FooterVista from './vista/FooterVista';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div className="content-wrap">
+          <NavbarVista/>
+          <Routes>
+            <Route path='/' element={<InicioVista/>}/>
+          </Routes>
+        </div>
+        <FooterVista/>
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+
